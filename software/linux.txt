@@ -1,0 +1,2 @@
+ls -t | awk '{if(NR>30) print}' | xargs rm -rf   #本地保留一个月的数据，不管是文件夹还是文件
+

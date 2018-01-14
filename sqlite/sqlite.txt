@@ -1,0 +1,6 @@
+sqlite基本命令
+sqlite3 file.db     #打开文件
+.headers on         #显示字段名称
+.h                  #显示帮助信息
+.s                  #显示数据库信息
+.quit               #退出sqlite3

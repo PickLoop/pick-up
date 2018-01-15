@@ -5,9 +5,12 @@ Building on Windows instal step
 教程：http://blog.csdn.net/q_l_s/article/details/52468309 
 1. 下载源码：https://trac.osgeo.org/geos/
 2. 双击：autogen.bat 
-3. 编译：nmake /f makefile.vc MSVC_VER=1400 BUILD_DEBUG=YES
+3. 编译：nmake /f makefile.vc MSVC_VER=1700 BUILD_DEBUG=YES
 	MSVC_VER=1400 为Visual Studio的版本号
 4. 编译后的dll和lib文件在./src文件夹中
 5. about need 10 minutes.
 
 Building on Linux instal step
+1. ./configure --prefix=/home/users/yourname/local/geos-3.4.2 //指定安装目录
+2. make //compile
+3. make install //install

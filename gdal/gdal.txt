@@ -4,19 +4,25 @@ Building on Windows instal step
 教程：http://blog.csdn.net/q_l_s/article/details/52468309 
 1. 下载源码：http://download.osgeo.org/gdal/
 2. 编译工具为Visual Studio自带工具: VS2012 x86 Native Tools Command Prompt
-3. 编译命令
-	4.1 nmake /f makefile.vc  //配置文件，需要点时间，注意是否提示有问题，如果有问题，重新配置makefile.opt
-	4.2 nmake /f makefile.vc install //生成bin/html/data文件夹，也可能出现错误，同样重新配makefile.opt
-	4.3 nmake /f makefile.vc devinstall //生成lib/include文件夹
-4. nmake.opt配置
+3. nmake.opt配置
 	2.1 GDAL Home = "D:\gddal"  //编译输出结果
-	2.2 MSVA_VER=1800  //Visual Studio版本，1800对应VC11
+	2.2 MSVC_VER=1700  //Visual Studio版本，1700对应VC11
 	2.3 支持GEOS
 		2.3.1 # Uncomment for GEOS support 后三行注释打开 GEOS_DIR、GEOS_CFLAGS、GEOS_LIB
 		2.3.2 GEOS_DIR后的内容为geos的本地路径
 		2.3.3 ”GEOS_CFLAGS=“ 和 “GEOS_LIB” = 后的‘/’ 改为 '\'
+4. 如果提示找不到"geos/version.h"，则需要将geos目录下的include路径加入到系统的include变量里。(系统没有INCLUDE环境变量的话需要新增)
+5. 编译命令
+	4.1 nmake /f makefile.vc  //配置文件，需要点时间，注意是否提示有问题，如果有问题，重新配置makefile.opt
+	4.2 nmake /f makefile.vc install //生成bin/html/data文件夹，也可能出现错误，同样重新配makefile.opt
+	4.3 nmake /f makefile.vc devinstall //生成lib/include文件夹
+	
+Building on Linux instal step
+1. ./configure --prefix=/data/indoor_local/third/result --with-geos=/data/indoor_local/third/geos-3.5.0/build/bin/geos-config --without-sqlite3 --without-xml2 --without-pg --without-curl --without-grib --without-jpeg --without-png
+2. make //compile
+3. make install //install
+4. 在Linux使用时注意lib的链接顺序，gdal.a在前geos_c.a在后。Windows使用未发现lib顺序问题。
 
 REFERENCE
 1. http://www.cnblogs.com/sansan/p/3394636.html 
-2. 
-
+2. http://www.cnblogs.com/asworld/p/4014591.html 

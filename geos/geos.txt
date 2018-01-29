@@ -4,8 +4,9 @@ https://trac.osgeo.org/geos/wiki/BuildingOnWindowsWithNMake //Building on Window
 Building on Windows instal step
 教程：http://blog.csdn.net/q_l_s/article/details/52468309 
 1. 下载源码：https://trac.osgeo.org/geos/
-2. 双击：autogen.bat 
-3. 编译：nmake /f makefile.vc MSVC_VER=1700 BUILD_DEBUG=YES
+2. 打开VS自带的命令行工具进行编译，源码与VS安装目录需要在同一个硬盘分区
+3. 双击：autogen.bat 
+3. 编译命令：nmake /f makefile.vc MSVC_VER=1700 BUILD_DEBUG=YES
 	MSVC_VER=1400 为Visual Studio的版本号
 4. 编译后的dll和lib文件在./src文件夹中
 5. about need 10 minutes.
@@ -14,3 +15,23 @@ Building on Linux instal step
 1. ./configure --prefix=/home/users/yourname/local/geos-3.4.2 //指定安装目录
 2. make //compile
 3. make install //install
+
+APPENDEX
+1. Visual Studio version number
+VS2005 8.0 (1400)
+VS2008 9.0 (1500)
+VS2010 10.0 (1600)
+VS2012 11.0 (1700)
+
+2. Produces:
+#  geos.lib: static library for use of C or C++ API.
+#  geos.dll: DLL - only exports the C API
+#  geos_i.lib: stub library to link against for use of geos.dll.
+#
+#  geos_d.lib: debug static library for use of C or C++ API.
+#  geos_d.dll: debug DLL - only exports the C API
+#  geos_i_d.lib: debug stub library to link against for use of geos.dll.
+
+3. NOTES
+打开VS自带的命令行工具进行编译，源码与VS安装目录需要在同一个硬盘分区，不然的话没法编译
+打开VS自带的命令行工具进行编译(VS2010可以从界面打开)，分x86与x64版本，不对的话链接出错

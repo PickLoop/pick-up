@@ -1,2 +1,10 @@
-ls -t | awk '{if(NR>30) print}' | xargs rm -rf   #本地保留一个月的数据，不管是文件夹还是文件
+du -sh                                                            #查看文件或者文件夹的大小
+df -h                                                             #查看磁盘大小
+sudo                                                              #执行root权限
+sudo su admin                                                     #切换至admin用户
+ls -t | awk '{if(NR>30) print}' | xargs rm -rf                    #本地保留一个月的数据，不管是文件夹还是文件
+
+
+
+
 

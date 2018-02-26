@@ -1,13 +1,13 @@
-PostgreSQL
+﻿PostgreSQL
 
 开发语言：C++
-
-Oid字段是PostgreSQL中隐藏的一个字段。
-开启方式：SET default_with_oids = true;
-
 
 PostgreSQL使用：
 1.	postgresql 8.3.3的版本 只提供系统函数，pg_cancel_backend(pid int) 这个函数只能kill select 查询，对update、delete及DML不生效。
 2.	postgresql 8.4 以后版本提pg_terminate_backend(pid int) 可以kill 可以kill 各种DML(SELECT,UPDATE,DELETE,DROP)操作。
 3.	对于Postgresql ，最好不要用kill -9 去杀用户进程，Postgresql需要很长的时间做Recovery,而在这个RECOVERY过程中，数据库是不可用的。
 
+SET default_with_oids = true;                                                                        --Oid字段是PostgreSQL中隐藏的一个字段
+pg_dump -h 100.69.192.90 -U postgres -d indoor3 -t indoor_floors > indoor_floors.sql                 --导出表结构和数据
+pg_dump -s -h 100.69.192.90 -U postgres -d indoor3 -t indoor_floors > indoor_floors.sql              --导出表结构不导出数据
+psql -h 100.69.192.90 -U postgres -f ./facility_area.sql                                             --恢复导出的表结构或数据
